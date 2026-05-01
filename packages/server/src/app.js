@@ -32,8 +32,15 @@ app.use('/api/search', searchRoutes);
 // Health check
 app.get('/api/health', (req, res) => res.json({ status: 'ok', timestamp: new Date() }));
 
-// 404
-app.use((req, res) => res.status(404).json({ success: false, message: 'Route not found.' }));
+// API 404
+app.use('/api', (req, res) => res.status(404).json({ success: false, message: 'Route not found.' }));
+
+// Serve frontend static files
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../../client/dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../client/dist/index.html'));
+});
 
 // Global error handler
 app.use((err, req, res, next) => {
