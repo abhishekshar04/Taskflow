@@ -28,7 +28,7 @@ io.on('connection', (client) => {
 });
 
 connectDB().then(() => {
-  server.listen(PORT, () => {
-    console.log(`🚀 TaskFlow API running on http://localhost:${PORT}`);
+  server.listen(PORT, "0.0.0.0", () => {
+    console.log(`🚀 TaskFlow API running on http://0.0.0.0:${PORT}`);
   });
 });
