@@ -2,7 +2,7 @@ let io;
 module.exports = {
   init: (server) => {
     io = require('socket.io')(server, {
-      cors: { origin: process.env.CLIENT_URL || 'http://localhost:5173', methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'] }
+      cors: { origin: '*', methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'] }
     });
     return io;
   },
