@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TaskFlow Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary-container": "#8590a6",
+                    "secondary-fixed": "#d8e2ff",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#f7f9fb",
+                    "primary-fixed-dim": "#bcc7de",
+                    "tertiary": "#041528",
+                    "surface-container": "#eceef0",
+                    "on-primary-fixed": "#111c2d",
+                    "tertiary-fixed": "#d3e4fe",
+                    "secondary-container": "#2170e4",
+                    "on-secondary": "#ffffff",
+                    "on-surface-variant": "#45474c",
+                    "inverse-surface": "#2d3133",
+                    "surface-dim": "#d8dadc",
+                    "on-primary-fixed-variant": "#3c475a",
+                    "on-tertiary": "#ffffff",
+                    "background": "#f7f9fb",
+                    "on-secondary-fixed": "#001a42",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "primary": "#091426",
+                    "primary-container": "#1e293b",
+                    "surface-container-high": "#e6e8ea",
+                    "on-tertiary-container": "#8191a9",
+                    "surface-container-low": "#f2f4f6",
+                    "on-error-container": "#93000a",
+                    "outline": "#75777d",
+                    "primary-fixed": "#d8e3fb",
+                    "on-surface": "#191c1e",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "inverse-primary": "#bcc7de",
+                    "secondary": "#0058be",
+                    "on-secondary-fixed-variant": "#004395",
+                    "on-background": "#191c1e",
+                    "outline-variant": "#c5c6cd",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "tertiary-container": "#1a2a3e",
+                    "surface-container-highest": "#e0e3e5",
+                    "on-secondary-container": "#fefcff",
+                    "surface": "#f7f9fb",
+                    "surface-variant": "#e0e3e5",
+                    "surface-tint": "#545f73"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "12px",
+                    "margin": "32px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "h1": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "h3": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "h2": ["Inter"]
+            },
+            "fontSize": {
+                    "h1": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                    "h3": ["24px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "h2": ["30px", {"lineHeight": "1.3", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f7f9fb;
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-background">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full w-[260px] z-50 bg-[#1e293b] border-r border-slate-800 shadow-xl flex flex-col h-full py-6">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="dashboard">dashboard</span>
+</div>
+<div>
+<h1 class="text-white text-xl font-bold tracking-tight">TaskFlow</h1>
+<p class="text-slate-400 text-xs font-medium uppercase tracking-widest opacity-60">Enterprise Edition</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-6 py-3 text-white bg-blue-600/10 border-l-4 border-blue-500 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-400 opacity-70 hover:opacity-100 hover:bg-slate-800/50 transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-md">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-400 opacity-70 hover:opacity-100 hover:bg-slate-800/50 transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-md">Team</span>
+</a>
+<a class="flex items-center gap-3 px-6 py-3 text-slate-400 opacity-70 hover:opacity-100 hover:bg-slate-800/50 transition-colors duration-200 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md">Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full bg-secondary text-white py-3 rounded-lg font-label-md flex items-center justify-center gap-2 hover:bg-on-secondary-fixed-variant transition-all active:scale-95">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Add Task
+            </button>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 left-[260px] h-16 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm flex items-center justify-between px-8 w-full">
+<div class="flex items-center flex-1">
+<div class="relative w-full max-w-md focus-within:ring-2 focus-within:ring-blue-500/20 rounded-lg transition-all">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-50 border-none rounded-lg text-sm focus:ring-0 placeholder:text-slate-400" placeholder="Search tasks, projects, or team members..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-slate-50 rounded-full p-2 transition-colors relative">
+<span class="material-symbols-outlined text-slate-500" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="hover:bg-slate-50 rounded-full p-2 transition-colors">
+<span class="material-symbols-outlined text-slate-500" data-icon="help_outline">help_outline</span>
+</button>
+<div class="h-8 w-px bg-slate-200 mx-2"></div>
+<div class="flex items-center gap-3">
+<div class="text-right hidden sm:block">
+<p class="font-label-md text-slate-900 leading-none">Alex Rivera</p>
+<p class="text-[10px] text-slate-500 uppercase tracking-wider font-bold">Project Lead</p>
+</div>
+<img alt="User profile" class="w-10 h-10 rounded-full border-2 border-white shadow-sm" data-alt="A professional headshot of a creative professional in a bright, modern office setting. The lighting is soft and natural, emphasizing a clean and reliable corporate aesthetic. The background is slightly blurred with minimalist furniture and cool gray tones, maintaining a focus on efficiency and professionalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNFttbwkpncnqt3ZWHVCBRYw3dv_iqKwfER9hShkNJKlgjVIdHEUZg6u9p2qaE5JpieSxJ2pJQD0Jw722fNfKitJB9svATWk9esaCrUiMKU8rmR8rwLElH6uR7Fhq80JJDceaiRU21DXRvcBuDPqVFjclYEPNlD_54R0nnYAVaf--9Z31Nq1i7ZmdGGPsc1FHKuJJ-GRDs0qh-b-hlhU953IdEnObnlzuNAiD5cMU4PDjR8D62zPYnbZPyFhHbBUbdt9xj5StZ6Fo"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-[260px] pt-16 min-h-screen p-8">
+<div class="max-w-[1440px] mx-auto">
+<!-- Welcome Header -->
+<section class="mb-8">
+<h2 class="font-h1 text-primary mb-1">Good morning, Alex.</h2>
+<p class="text-on-primary-container font-body-md">Here's what's happening with your projects today.</p>
+</section>
+<!-- Summary Statistics Bento Grid -->
+<section class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-gutter mb-xl">
+<div class="bg-surface-container-lowest border border-slate-200 p-lg rounded-xl shadow-[0px_2px_4px_rgba(30,41,59,0.05)] hover:shadow-[0px_10px_15px_rgba(30,41,59,0.1)] transition-all">
+<div class="flex items-center justify-between mb-md">
+<span class="material-symbols-outlined text-secondary bg-secondary-fixed/30 p-2 rounded-lg" data-icon="task_alt">task_alt</span>
+<span class="text-label-sm text-on-surface-variant font-bold">+12% from last week</span>
+</div>
+<p class="text-on-surface-variant font-label-md uppercase tracking-wider mb-xs">Total Tasks</p>
+<h3 class="font-h2 text-primary">128</h3>
+</div>
+<div class="bg-surface-container-lowest border border-slate-200 p-lg rounded-xl shadow-[0px_2px_4px_rgba(30,41,59,0.05)] hover:shadow-[0px_10px_15px_rgba(30,41,59,0.1)] transition-all">
+<div class="flex items-center justify-between mb-md">
+<span class="material-symbols-outlined text-secondary-container bg-secondary-fixed/50 p-2 rounded-lg" data-icon="pending">pending</span>
+<span class="text-label-sm text-secondary-container font-bold">Active now</span>
+</div>
+<p class="text-on-surface-variant font-label-md uppercase tracking-wider mb-xs">In Progress</p>
+<h3 class="font-h2 text-primary">42</h3>
+</div>
+<div class="bg-surface-container-lowest border border-slate-200 p-lg rounded-xl shadow-[0px_2px_4px_rgba(30,41,59,0.05)] hover:shadow-[0px_10px_15px_rgba(30,41,59,0.1)] transition-all">
+<div class="flex items-center justify-between mb-md">
+<span class="material-symbols-outlined text-error bg-error-container/50 p-2 rounded-lg" data-icon="error_outline">error_outline</span>
+<span class="text-label-sm text-error font-bold">Action required</span>
+</div>
+<p class="text-on-surface-variant font-label-md uppercase tracking-wider mb-xs">Overdue</p>
+<h3 class="font-h2 text-primary">7</h3>
+</div>
+<div class="bg-primary-container text-white p-lg rounded-xl shadow-lg relative overflow-hidden hidden lg:block">
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div>
+<p class="font-label-md uppercase tracking-widest opacity-70 mb-xs">Daily Goal</p>
+<h3 class="font-h3">85% Complete</h3>
+</div>
+<div class="w-full bg-white/20 h-2 rounded-full mt-4">
+<div class="bg-secondary-fixed h-full rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10">
+<span class="material-symbols-outlined text-[120px]" data-icon="rocket_launch">rocket_launch</span>
+</div>
+</div>
+</section>
+<!-- Asymmetric Main Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Tasks Due Today List (8 cols) -->
+<section class="lg:col-span-8 space-y-md">
+<div class="flex items-center justify-between mb-sm">
+<h3 class="font-h3 text-primary">Tasks Due Today</h3>
+<button class="text-secondary font-label-md hover:underline">View All</button>
+</div>
+<!-- Task Card 1 -->
+<div class="bg-white border border-slate-200 p-md rounded-lg flex items-center justify-between group hover:border-secondary transition-colors cursor-pointer shadow-sm">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded border-2 border-slate-300 group-hover:border-secondary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 text-sm" data-icon="check">check</span>
+</div>
+<div>
+<h4 class="font-label-md text-primary">Update System Documentation for Q3</h4>
+<p class="text-body-sm text-on-surface-variant">Due by 5:00 PM • Infrastructure Project</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex -space-x-2">
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-white" data-alt="Close-up portrait of a professional team member in a high-tech minimalist office environment. The lighting is crisp and cool, highlighting the clean skin and focused expression. The style is modern corporate with a palette of deep blues and whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBNPBryJaHhjl9oIJx4iKMee76KWUd7Pxi8DLKM5WZi2JfQx6VQ2YtsKkqaXcFTUhF-kVn8UPAZM2gRL-bydxcdLxY6hAV9Zt3BB2kNcH4lSl4ugts7ndOURbQlnEGvtByzlF9iA3cfGgY5YAIvbUF9FQuV781rbDUMvsCjUdlajMHKdYFIsCNKI3whuhRLSOmULTnEIsGhdp7inQCfDFTzjgDzpH2FlQWXFnrmaONXtHLn2R6809H2gaITl-Wck1E3Y8tiBq_CXk"/>
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-white" data-alt="Headshot of a female executive in a bright, modern corporate setting. Soft ambient daylight creates a welcoming yet efficient atmosphere. The overall visual style is minimalist and clean, utilizing the core project colors of navy and white." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJkV0bOWfbNeZOmwMic6sgvhzN8pOR8md8gCXoOIjUj1ja2Lo-PaiHdIhWeM44eySfGy5wKKU_g0EuZ9HF2GJbXKR53nfp12cQK4ip6GC-vRnZO_ktn-nOw1ETgQnKwEy-HuZyfVtzJxmRB5fFnAs4yMLac5IvTyHZqPfeEAUgWHgw2IyQnUcKqby3LmO0LcpFZmQFDO0DQmvXgZEObCdAOxB0GI5eaxSKfxczt1sP7hhIKiZc16fN7_hMz_Ti1rmnuf4_Ve4_Lwo"/>
+</div>
+<span class="px-3 py-1 rounded-full text-label-sm bg-blue-100 text-blue-700">In Progress</span>
+</div>
+</div>
+<!-- Task Card 2 -->
+<div class="bg-white border border-slate-200 p-md rounded-lg flex items-center justify-between group hover:border-secondary transition-colors cursor-pointer shadow-sm">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded border-2 border-slate-300 group-hover:border-secondary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 text-sm" data-icon="check">check</span>
+</div>
+<div>
+<h4 class="font-label-md text-primary">Client Feedback Session: Fintech App</h4>
+<p class="text-body-sm text-on-surface-variant">Due by 2:30 PM • Client Success</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex -space-x-2">
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-white" data-alt="A portrait of a male designer looking forward with a confident expression. The background consists of a sleek, minimalist studio with glass partitions and soft overhead lighting. The color profile is professional, featuring high contrast whites and deep blues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxVefSwmWI3onXbt-Z8DhULhiOV6anRq5F718uBOmtptQwYvtvCkFniI13nS5mefC9A1uQ4DjxQ6m0lSVViGs2nVfIv1XJtKjyF9dBPM_GqBSHP0IddR7grTn9grUYHQa9JicJxNJAESIUEsQ5xLa1iLMsfOWxk56IC0cySN9gw-QZjlszKI9t0WVNBWr74_euVY6sF3pakVC7S17EGALgbm9LvDy1mwxhytWK15PFgzWTvGuUFnVdEkSNx91maO37adylaiTw8w8"/>
+</div>
+<span class="px-3 py-1 rounded-full text-label-sm bg-slate-100 text-slate-700">To Do</span>
+</div>
+</div>
+<!-- Task Card 3 -->
+<div class="bg-white border border-slate-200 p-md rounded-lg flex items-center justify-between group hover:border-secondary transition-colors cursor-pointer shadow-sm">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded border-2 border-slate-300 group-hover:border-secondary flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 text-sm" data-icon="check">check</span>
+</div>
+<div>
+<h4 class="font-label-md text-primary">Security Audit: Cloud Infrastructure</h4>
+<p class="text-body-sm text-on-surface-variant">Due by 12:00 PM • DevOps</p>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex -space-x-2">
+<span class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-[10px] font-bold text-slate-600 border-2 border-white">+3</span>
+</div>
+<span class="px-3 py-1 rounded-full text-label-sm bg-red-100 text-red-700">Critical</span>
+</div>
+</div>
+<!-- Project Snapshot Visual -->
+<div class="mt-lg relative rounded-xl overflow-hidden h-[240px] bg-primary">
+<img class="w-full h-full object-cover opacity-40 grayscale" data-alt="A group of professionals collaborating in a high-end, minimalist conference room. Large glass windows reveal a modern cityscape in the background. The lighting is bright and high-key, with a clean and sophisticated corporate aesthetic. The overall mood is focused on reliability and elite performance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDubNHmOPxbgp1NAPmXaLQWAyWP9OtVGZRZUbCZ5Hv_wHF9PbXlBlFjH-ZO1p3peDhkNwbsqxev4WBGcaoWqUEXmm7MO7sU3b8Tr-aJXtS7EWktW_2rzYWruaRrk8UE_aBZPEdirTj2kT_mBfZc5bnG645frWf3f1NNlziMPCAMtFlwxnR1mFeHvLTiHBIMsTGfBCNZKxiZbjBp8_5k8gqzbMiVjm9Sy-JRJ6rI3ny6CWCba4mY2z5ESqcTQ3Bc6bDauksOJLp4fDU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent p-xl flex flex-col justify-end">
+<h4 class="text-white font-h3 mb-2">Team Sprint Progress</h4>
+<p class="text-white/70 font-body-sm max-w-md">You're currently 4 days ahead of the original project schedule for the Enterprise Migration.</p>
+<div class="flex gap-4 mt-4">
+<button class="bg-white text-primary px-6 py-2 rounded-lg font-label-md hover:bg-slate-100 transition-colors">Open Sprint Board</button>
+<button class="bg-white/10 text-white border border-white/20 backdrop-blur px-6 py-2 rounded-lg font-label-md hover:bg-white/20 transition-colors">Team View</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Small Chart & Sidebar Content (4 cols) -->
+<aside class="lg:col-span-4 space-y-gutter">
+<!-- Progress Chart Card -->
+<div class="bg-surface-container-lowest border border-slate-200 p-lg rounded-xl shadow-sm">
+<div class="flex items-center justify-between mb-lg">
+<h4 class="font-label-md text-primary uppercase tracking-wider">Project Health</h4>
+<span class="material-symbols-outlined text-slate-400" data-icon="more_horiz">more_horiz</span>
+</div>
+<div class="space-y-md">
+<div>
+<div class="flex justify-between mb-xs">
+<span class="text-body-sm font-medium">Platform Revamp</span>
+<span class="text-body-sm text-secondary font-bold">78%</span>
+</div>
+<div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 78%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-xs">
+<span class="text-body-sm font-medium">Marketing Campaign</span>
+<span class="text-body-sm text-emerald-600 font-bold">92%</span>
+</div>
+<div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="bg-emerald-500 h-full rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-xs">
+<span class="text-body-sm font-medium">Legacy Migration</span>
+<span class="text-body-sm text-on-error-container font-bold">34%</span>
+</div>
+<div class="w-full bg-slate-100 h-2 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 34%"></div>
+</div>
+</div>
+</div>
+<div class="mt-xl pt-lg border-t border-slate-100">
+<div class="flex justify-center items-end h-24 gap-2">
+<div class="w-full bg-slate-100 rounded-t-sm h-1/2"></div>
+<div class="w-full bg-slate-100 rounded-t-sm h-3/4"></div>
+<div class="w-full bg-secondary rounded-t-sm h-full"></div>
+<div class="w-full bg-slate-100 rounded-t-sm h-2/3"></div>
+<div class="w-full bg-slate-100 rounded-t-sm h-5/6"></div>
+<div class="w-full bg-slate-100 rounded-t-sm h-1/3"></div>
+<div class="w-full bg-secondary rounded-t-sm h-2/3"></div>
+</div>
+<p class="text-center text-[10px] text-slate-400 mt-2 uppercase font-bold tracking-widest">7-Day Task Completion Trend</p>
+</div>
+</div>
+<!-- Upcoming Meetings Card -->
+<div class="bg-white border border-slate-200 p-lg rounded-xl shadow-sm">
+<h4 class="font-label-md text-primary uppercase tracking-wider mb-lg">Upcoming</h4>
+<div class="space-y-md">
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-slate-50 rounded-lg flex flex-col items-center justify-center text-slate-400">
+<span class="text-xs font-bold leading-none">14</span>
+<span class="text-[10px] uppercase font-bold">Oct</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-primary">Sprint Retrospective</p>
+<p class="text-body-sm text-slate-500">11:00 AM • Virtual Meeting</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="flex-shrink-0 w-12 h-12 bg-slate-50 rounded-lg flex flex-col items-center justify-center text-slate-400">
+<span class="text-xs font-bold leading-none">16</span>
+<span class="text-[10px] uppercase font-bold">Oct</span>
+</div>
+<div class="flex-1">
+<p class="font-label-md text-primary">Product Roadmap sync</p>
+<p class="text-body-sm text-slate-500">2:00 PM • Conference Rm 4</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-lg border border-slate-200 py-2 rounded-lg text-label-md text-slate-600 hover:bg-slate-50 transition-colors">See Calendar</button>
+</div>
+<!-- Team Online Card -->
+<div class="bg-white border border-slate-200 p-lg rounded-xl shadow-sm">
+<h4 class="font-label-md text-primary uppercase tracking-wider mb-lg">Active Team Members</h4>
+<div class="flex flex-wrap gap-3">
+<div class="relative">
+<img class="w-10 h-10 rounded-full" data-alt="A digital portrait of a young male professional in a modern, light-filled workspace. The lighting is soft and neutral, enhancing a clean corporate look. The style is minimalist and high-end, using a professional color palette of light grays and navy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5GuPc6O36LWx_MGEhSwjjHJSvCjtMNO-lhl34PpM4Ac9d4OHGP7zzkcl0BM6YQtqWGVOUQNJXVgkQIZebULmVQThxI2FaZAOH8TqBNwAhbY3QSiUbcSZlQTuw_fxE5GjyUqYVOL3sFExqHU09phkgSnrYio6i85u0yv6Njoo8JnnTC_pK6tZn90HLuu7jbV9VEmYicSiEOdP-9J8OUh2MBJKWNb1xC6n57QFNTrw1TuQeyS5FQEKK9KIozglO2VSM_z7OHmhxWTA"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></span>
+</div>
+<div class="relative">
+<img class="w-10 h-10 rounded-full" data-alt="A clean, professional headshot of a female executive in a bright contemporary office setting. High-key lighting highlights the minimalist aesthetic. The image reflects a sense of efficiency and focus, sticking to a modern, corporate color scheme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZx5u8pHBOnBgVHOUyYnPe9ykM_3CBYajS-4EiYYk5Zsvhyv6Qr9rSkYon11KedvGJRrsDK4wqiIlUkj0KS9o1dK6k7_F0jumI8IX0VplvlcZpNVnxcf2kM1my423e6-wt22KJBfxT-xn9tA8CXRB_07qN9wPVoGhkqkEaCQ9CQT8Vqm5Pwv9t2tLtq6LdPMMV9YUy-AxR-FHOslmDEoct4hx41HpdayjjZPnN5Kv0UPL5jZ9G4Wa6TgAL4xdqNJkvyBYBazeJjXk"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></span>
+</div>
+<div class="relative">
+<img class="w-10 h-10 rounded-full" data-alt="A professional male team member smiling in a light-filled modern workspace with minimalist design features. The lighting is soft and flattering. The visual style is premium and corporate, using a palette of cool blues and clean whites." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvjgtUNKxnRaszkoQ_2Wc-Ibimajefa84h0eQnpTvHqJURn0V0hG048fhbHQxXWZqEweoYVX31kLpdkOzl8VfSxYS6hswkOH-xcHx93mexRpligwWPeAlCKjbKy-5mSPkstTTJpwYD9XMkWXxKO-GF6unkpiB7TmSuMRVA-P0VI1rfCzW_D86EtlVmNSVK5IkjkCF5Eaj1rcuSen5CCVG04TBHbpk-yPgnXt5ISDwpfVu5AF3qZqwsO1bI7CPi9Ykgei3dJPZvE2U"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></span>
+</div>
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 font-bold text-xs">+14</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+</body></html>

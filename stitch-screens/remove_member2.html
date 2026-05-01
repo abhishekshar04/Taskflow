@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-container": "#1a2a3e",
+                    "tertiary": "#041528",
+                    "inverse-surface": "#2d3133",
+                    "surface-bright": "#f7f9fb",
+                    "on-background": "#191c1e",
+                    "primary": "#091426",
+                    "on-secondary-fixed-variant": "#004395",
+                    "secondary": "#0058be",
+                    "tertiary-fixed": "#d3e4fe",
+                    "on-surface": "#191c1e",
+                    "inverse-primary": "#bcc7de",
+                    "primary-fixed": "#d8e3fb",
+                    "on-error-container": "#93000a",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#111c2d",
+                    "secondary-fixed": "#d8e2ff",
+                    "outline": "#75777d",
+                    "on-primary-fixed-variant": "#3c475a",
+                    "tertiary-fixed-dim": "#b7c8e1",
+                    "surface-tint": "#545f73",
+                    "inverse-on-surface": "#eff1f3",
+                    "surface-dim": "#d8dadc",
+                    "on-secondary-fixed": "#001a42",
+                    "surface-container": "#eceef0",
+                    "surface": "#f7f9fb",
+                    "surface-container-high": "#e6e8ea",
+                    "on-error": "#ffffff",
+                    "on-secondary-container": "#fefcff",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary-container": "#8590a6",
+                    "secondary-container": "#2170e4",
+                    "primary-fixed-dim": "#bcc7de",
+                    "error": "#ba1a1a",
+                    "background": "#f7f9fb",
+                    "surface-container-low": "#f2f4f6",
+                    "surface-container-highest": "#e0e3e5",
+                    "secondary-fixed-dim": "#adc6ff",
+                    "on-tertiary-fixed-variant": "#38485d",
+                    "primary-container": "#1e293b",
+                    "outline-variant": "#c5c6cd",
+                    "surface-variant": "#e0e3e5",
+                    "on-tertiary-container": "#8191a9",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed": "#0b1c30",
+                    "on-surface-variant": "#45474c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin": "32px",
+                    "xl": "32px",
+                    "sm": "12px",
+                    "lg": "24px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "h1": ["Inter"],
+                    "body-md": ["Inter"],
+                    "h2": ["Inter"],
+                    "h3": ["Inter"],
+                    "body-lg": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-screen w-[260px] bg-slate-900 dark:bg-slate-950 border-r border-slate-800 shadow-xl flex flex-col z-50 font-inter text-sm antialiased">
+<div class="p-6 flex flex-col gap-1">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 bg-blue-500 rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">dataset</span>
+</div>
+<h1 class="text-xl font-bold text-white">TaskFlow Pro</h1>
+</div>
+<p class="text-slate-500 text-xs px-11">Enterprise Tier</p>
+</div>
+<div class="mt-4 px-4">
+<button class="w-full py-2.5 px-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-lg flex items-center justify-center gap-2 transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                New Project
+            </button>
+</div>
+<nav class="mt-8 flex-1 flex flex-col">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<!-- Projects -->
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined" data-icon="folder_open">folder_open</span>
+                Projects
+            </a>
+<!-- Tasks -->
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+                Tasks
+            </a>
+<!-- Team (ACTIVE) -->
+<a class="flex items-center gap-3 px-4 py-3 text-white bg-slate-800 border-l-4 border-blue-500 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+                Team
+            </a>
+<!-- Settings -->
+<a class="flex items-center gap-3 px-4 py-3 text-slate-400 hover:text-white transition-colors hover:bg-slate-800" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<div class="p-6 border-t border-slate-800 mt-auto">
+<div class="flex items-center gap-3">
+<img alt="Organization Logo" class="w-8 h-8 rounded-full" data-alt="A professional corporate logo design for an enterprise technology firm, set against a dark navy background. The logo features minimalist geometric shapes suggesting connectivity and efficiency, rendered in bright white and vibrant cobalt blue tones, embodying a clean and reliable brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxKb46yXmyHmMIGNyxuTbuTP5bBb22wyFVDRDGsEJPV8oxAfA5YVuBQh1BANg-Zy2W7t3MyLk_ORopKsGNfvDlcqnZJxmJYrK9gHB7oYZv_rHticbvwFim2zDZ477awz13myWGB5Bnt23V8ntjPLv8QHBTPe2SLoX7p2jsTxRQ1wKvuOkGRVNr9X5IFlOYhJ5h4F2KpU2DhmbHOIzEkG7Z-2XYBcF8K1M2bhcHZzacI2BwgYFRkLpJRaHt8LStz8LXCf22ffUkT34"/>
+<div>
+<p class="text-white font-medium text-xs">Acme Global</p>
+<p class="text-slate-500 text-[10px]">128 Members</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-[260px] min-h-screen">
+<!-- TopNavBar Shell -->
+<header class="sticky top-0 z-40 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between px-6 py-2 transition-all duration-200 ease-in-out font-inter text-sm font-medium">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-96 group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-blue-500 transition-colors">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-slate-100 border-none rounded-lg focus:ring-2 focus:ring-blue-500/20 text-slate-900 transition-all" placeholder="Search for projects, tasks or members..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md transition-all">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+<div class="h-6 w-[1px] bg-slate-200 dark:bg-slate-700 mx-2"></div>
+<button class="px-4 py-2 bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700 transition-all active:scale-95">Invite Member</button>
+<img alt="User Avatar" class="w-8 h-8 rounded-full border border-slate-200" data-alt="A clean and professional headshot of a team manager in a brightly lit, modern office setting. The person has a friendly, focused expression, wearing professional attire. The background is softly blurred, showing a high-tech corporate workspace with cool blue and neutral grey tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1CYGL9hbSBqmItfeav-ByMVFqCUPNswnc2YMZAZp6ZRl8-1aKqaV-wxpHRE4q6h0UOmr-FFzuQTfk1gETuprSe2_wz1cWZHanV7qqPrZlgRWrPR0VchZZtzUOoyVbnz1g0x6-eMXR1kL0LsMWfwPqGeId_md93Oql1eg2Xhj02dFplJTVJs7C8SKZyvefJlxbzn_f-mUNltcGVPT-ukqm-MIdORmi-U45-9VCZ27qr0lBb8H9d8xxs9yT_nhoi5sCVa8igpgPUDw"/>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-lg space-y-lg max-w-[1440px] mx-auto">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md bg-white p-lg rounded-xl border border-outline-variant shadow-sm">
+<div>
+<h2 class="font-h2 text-h2 text-primary">Team Members</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage your organization's members and their permissions levels.</p>
+</div>
+<div class="flex items-center gap-base px-lg py-sm bg-primary-fixed rounded-lg border border-primary-fixed-dim">
+<span class="font-label-md text-label-md text-on-primary-fixed">Total Members</span>
+<span class="font-h3 text-h3 text-on-primary-fixed">42</span>
+</div>
+</div>
+<!-- Bento Grid Layout for Management -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Main Member Table (Large Bento Tile) -->
+<div class="lg:col-span-9 bg-white rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="p-md border-b border-outline-variant bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="relative flex-1 max-w-xs group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-secondary transition-colors text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-base bg-white border border-outline rounded-lg text-body-sm focus:ring-2 focus:ring-secondary/20 focus:border-secondary transition-all outline-none" placeholder="Search members..." type="text"/>
+</div><button class="flex items-center gap-xs px-md py-base bg-white border border-outline rounded-lg text-label-md font-label-md hover:bg-surface transition-all">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+                                Filter
+                            </button>
+<div class="flex gap-xs">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container rounded-full text-[12px] font-bold">All</span>
+<span class="px-3 py-1 hover:bg-surface-container text-on-surface-variant rounded-full text-[12px] font-medium cursor-pointer">Project Leads</span>
+<span class="px-3 py-1 hover:bg-surface-container text-on-surface-variant rounded-full text-[12px] font-medium cursor-pointer">Admins</span>
+</div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Showing 42 of 42 members</span>
+</div>
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-lowest text-on-surface-variant">
+<th class="p-md font-label-md text-label-md">Member</th>
+<th class="p-md font-label-md text-label-md">Role</th>
+<th class="p-md font-label-md text-label-md">Status</th>
+<th class="p-md font-label-md text-label-md">Last Active</th>
+<th class="p-md font-label-md text-label-md text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant">
+<!-- Member Row 1 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Jane Smith" data-alt="A portrait photo of a professional woman in a modern architectural office. Soft afternoon light filters through large windows, casting a warm glow. The color scheme is dominated by sophisticated slates and professional blues, reflecting a calm and competent demeanor." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAY8rJaCtwtZ9b7x_STsZ8aZ698_tIB4oTWvOclmxiFN3a7ipIxgmH08be1MNypejLm3J5jd7To4ljPpDOzBAmt4D9jyjMIucuO0LtF5PC-j5PRNE7eCVjg-cF6FmzEtkVOQ5Jaef_l4eTG2imhBFvTbPBECZBDNzCaO9yY6oxdFDrJLt4wakFjD6iHVgiYOfZqQi3qwY6Dyqjs-oHyFqeGymJItRD6E7B_Skog66flFQc-UisuExyrey7iaGN7ongsSGvODbiNFWM"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Jane Smith</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">jane.smith@taskflow.io</p>
+</div>
+</div>
+</td>
+<td class="p-md"><div class="relative inline-block">
+<select class="appearance-none bg-surface-container text-on-surface-variant text-label-sm font-label-sm px-3 py-1 pr-8 rounded cursor-pointer border-none focus:ring-2 focus:ring-secondary/20 transition-all">
+<option selected="" value="admin">Admin</option>
+<option value="project-lead">Project Lead</option>
+<option value="member">Member</option>
+<option value="viewer">Viewer</option>
+</select>
+<span class="material-symbols-outlined absolute right-1 top-1/2 -translate-y-1/2 text-[16px] pointer-events-none text-on-surface-variant">expand_more</span>
+</div></td>
+<td class="p-md">
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="text-body-sm font-body-sm text-emerald-700">Active</span>
+</div>
+</td>
+<td class="p-md text-body-sm font-body-sm text-on-surface-variant">Just now</td>
+<td class="p-md text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="flex items-center gap-1 px-3 py-1.5 text-error hover:bg-error-container/20 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+<span class="text-label-sm font-label-sm">Remove</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-lg">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Member Row 2 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Marcus Chen" data-alt="A high-quality professional profile photo of an Asian male executive in a collaborative tech environment. The lighting is bright and clear, highlighting a confident smile. The background shows glass walls and vibrant office plants, creating a fresh and innovative atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCA02gjmXeXVfCv6mGzh62i4cmkXrM5uaa-pd5hKo3FuxFgXwCG_uowzdsjnUY66s7GZa1nRmoCH0knrXUHoLs-vt3k0iMGf_WCJcN6rsLZ2Xd1v0Y22Wwmd_V9ziyCMmlMXLEqDxaSufQMFRvWtHJl99t_bSjCLChxyrLgus0UM0iW9AhCH0ebMz21kX1LJHFcAofHviE_CsA-jmgA6fDFhhleT13kG4th3v-gu-IWYQUW33Ff9PBeOB5lu5lq3b4SPVEzejmnfcM"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Marcus Chen</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">m.chen@taskflow.io</p>
+</div>
+</div>
+</td>
+<td class="p-md"><div class="relative inline-block">
+<select class="appearance-none bg-surface-container text-on-surface-variant text-label-sm font-label-sm px-3 py-1 pr-8 rounded cursor-pointer border-none focus:ring-2 focus:ring-secondary/20 transition-all">
+<option value="admin">Admin</option>
+<option selected="" value="project-lead">Project Lead</option>
+<option value="member">Member</option>
+<option value="viewer">Viewer</option>
+</select>
+<span class="material-symbols-outlined absolute right-1 top-1/2 -translate-y-1/2 text-[16px] pointer-events-none text-on-surface-variant">expand_more</span>
+</div></td>
+<td class="p-md">
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-amber-500"></div>
+<span class="text-body-sm font-body-sm text-amber-700">Away</span>
+</div>
+</td>
+<td class="p-md text-body-sm font-body-sm text-on-surface-variant">14 mins ago</td>
+<td class="p-md text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="flex items-center gap-1 px-3 py-1.5 text-error hover:bg-error-container/20 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+<span class="text-label-sm font-label-sm">Remove</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-lg">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Member Row 3 -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Linda Avery" data-alt="A professional studio portrait of a senior creative professional. The lighting is soft and artistic, emphasizing a thoughtful expression. The style is minimalist and high-end corporate, with deep navy and slate grey tones providing a sophisticated backdrop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwki3htCspKMFrWIVl1pAcgYuoXP6ghL2lHQ-98zFXxP4jSsIUbMD1OHZKhKJ3jO4FR2EGl14Ai75yRYRY2LJ4saOgFcFXQPUEk2iwkyNzzNjewdTBmxKhLnnJ1ygEiv8APmWMtWMTfZh9t0utMWq2utd56LKIl7vMNcmkfUAQK2pAqirBOOAHxuPNthn8qHyS3oRnPIYjTmdh7pxPcJJrG_A0iU9v5hZGl5us_qdtCLvX63wS9StsCfL5l_Q-MnPUs54Up0JASIQ"/>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary">Linda Avery</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">linda@taskflow.io</p>
+</div>
+</div>
+</td>
+<td class="p-md"><div class="relative inline-block">
+<select class="appearance-none bg-surface-container text-on-surface-variant text-label-sm font-label-sm px-3 py-1 pr-8 rounded cursor-pointer border-none focus:ring-2 focus:ring-secondary/20 transition-all">
+<option value="admin">Admin</option>
+<option value="project-lead">Project Lead</option>
+<option selected="" value="member">Member</option>
+<option value="viewer">Viewer</option>
+</select>
+<span class="material-symbols-outlined absolute right-1 top-1/2 -translate-y-1/2 text-[16px] pointer-events-none text-on-surface-variant">expand_more</span>
+</div></td>
+<td class="p-md">
+<div class="flex items-center gap-xs">
+<div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+<span class="text-body-sm font-body-sm text-emerald-700">Active</span>
+</div>
+</td>
+<td class="p-md text-body-sm font-body-sm text-on-surface-variant">2 hours ago</td>
+<td class="p-md text-right">
+<div class="flex items-center justify-end gap-2">
+<button class="flex items-center gap-1 px-3 py-1.5 text-error hover:bg-error-container/20 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+<span class="text-label-sm font-label-sm">Remove</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container rounded-lg">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="p-md bg-surface-container-lowest border-t border-outline-variant flex items-center justify-center">
+<button class="text-secondary font-label-md text-label-md hover:underline">View All Members</button>
+</div>
+</div>
+<!-- Right Column (Bento Stacks) -->
+<div class="lg:col-span-3 space-y-lg">
+<!-- Pending Invitations Tile -->
+<div class="bg-white rounded-xl border border-outline-variant shadow-sm p-md flex flex-col gap-md">
+<div class="flex items-center justify-between">
+<h3 class="font-label-md text-label-md text-primary">Pending Invitations</h3>
+<span class="bg-primary text-on-primary text-[10px] px-2 py-0.5 rounded-full">3</span>
+</div>
+<div class="space-y-md">
+<!-- Pending 1 -->
+<div class="p-base rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-sm text-label-sm text-primary">robert.fox@gmail.com</span>
+<span class="text-[10px] text-on-surface-variant">2d ago</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="text-[10px] px-1.5 py-0.5 bg-secondary-container/10 text-secondary-container rounded">Viewer</span>
+<button class="ml-auto text-error font-label-sm text-[10px] hover:underline">Revoke</button>
+</div>
+</div>
+<!-- Pending 2 -->
+<div class="p-base rounded-lg bg-surface-container-low border border-outline-variant">
+<div class="flex justify-between items-start mb-1">
+<span class="font-label-sm text-label-sm text-primary">s.williams@outlook.com</span>
+<span class="text-[10px] text-on-surface-variant">5h ago</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="text-[10px] px-1.5 py-0.5 bg-secondary-container/10 text-secondary-container rounded">Member</span>
+<button class="ml-auto text-error font-label-sm text-[10px] hover:underline">Revoke</button>
+</div>
+</div>
+</div>
+<button class="w-full py-2 text-center text-secondary font-label-md text-label-md hover:bg-secondary-fixed rounded-lg transition-colors">
+                            Resend All Reminders
+                        </button>
+</div>
+<!-- Quick Permissions Overview Tile -->
+<div class="bg-primary text-white rounded-xl shadow-xl p-md flex flex-col gap-md">
+<div class="flex items-center gap-base">
+<span class="material-symbols-outlined text-secondary-fixed">shield</span>
+<h3 class="font-label-md text-label-md">Role Breakdown</h3>
+</div>
+<div class="space-y-sm">
+<div class="flex items-center justify-between">
+<span class="text-body-sm opacity-80">Administrators</span>
+<span class="font-label-md">4</span>
+</div>
+<div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed rounded-full" style="width: 10%"></div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-body-sm opacity-80">Project Leads</span>
+<span class="font-label-md">12</span>
+</div>
+<div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed rounded-full" style="width: 30%"></div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-body-sm opacity-80">Team Members</span>
+<span class="font-label-md">26</span>
+</div>
+<div class="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed rounded-full" style="width: 60%"></div>
+</div>
+</div>
+<p class="text-[11px] opacity-60 leading-relaxed">
+                            Roles define visibility and editing rights across all organization workspaces.
+                        </p>
+</div>
+<!-- Organization Settings Shortcut -->
+<div class="bg-surface-container-high rounded-xl border border-outline-variant p-md">
+<div class="flex items-center gap-md">
+<div class="p-2 bg-white rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-primary">domain_verification</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-primary">Domain Access</h4>
+<p class="text-[11px] text-on-surface-variant">Auto-join enabled for @taskflow.io</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
