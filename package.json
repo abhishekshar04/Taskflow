@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "start": "npm run start --workspace=packages/server",
+    "start:client": "npm run start --workspace=packages/client",
     "build": "npm run build --workspace=packages/client",
     "dev": "concurrently -n SERVER,CLIENT -c bgBlue,bgGreen \"npm run dev --workspace=packages/server\" \"npm run dev --workspace=packages/client\"",
     "dev:server": "npm run dev --workspace=packages/server",
